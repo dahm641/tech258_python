@@ -16,3 +16,4 @@ student1["completed_lessons"] = 3
 student1["completed_lesson_names"].append("tuples")
 print(student1["completed_lesson_names"])
 print(student1.keys())
+print(student1.values())
