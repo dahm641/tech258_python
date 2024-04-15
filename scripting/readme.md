@@ -1,6 +1,7 @@
 ## What is scripting
 
 ![pcture](https://visionx.io/wp-content/uploads/2023/03/Scripting-Language-vs-Programming-Language-768x768.png)
+
 Scripting is writing a block of code that can automate a process for us. it is useful if we need something done
 repeatedly and takes out a lot of the manual labour to keep running scripts.
 For example we can write a script that shuts down servers everyday at night time so we don't have to do it every time.
@@ -10,7 +11,10 @@ It saves us time. It talks directly to the computer.
 A programme is more interactive and helps humans communicate with their computers better. usually for large scale programmes with a broad rang of activities. can be used with compiled or interpreted languages whereas scripts have a very specific task and are usually just interpreted languages. 
 ## What are packages
 
-Packages are predfined groups of functions that we can call upon to save ourselves from writing extra code. They are made to make our life easier and reduce the amount of coding we need to do with some built in functions
+Packages are predfined groups of functions that we can call upon to save ourselves from writing extra code. They are made to make our life easier and reduce the amount of coding we need to do with some built in functions.
+
+We can import them from online and other places too if needed. 
+this can be done using the `pip` command in the terminal.
 
 An example is:
 ```python
