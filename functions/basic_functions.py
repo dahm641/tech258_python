@@ -54,3 +54,37 @@ def division(num: int, denom: int) -> float:
 
 
 print(division(3, 6))
+
+# KEYWORD ARGUMENTS
+# You can also send arguments with the key = value syntax.
+# This way the order of the arguments does not matter.
+
+def my_function(child3, child2, child1):
+  print("The youngest child is " + child3)
+
+# my_function(child1 = "Emil", child2 = "Tobias", child3 = "Linus")
+#
+# If you do not know how many keyword arguments that will be passed into your function:
+# add two asterisk: ** before the parameter name in the function definition.
+# This way the function will receive a dictionary of arguments, and can access the items accordingly:
+
+def my_function(**kid):
+  print("His last name is " + kid["lname"])
+
+my_function(fname = "Tobias", lname = "Refsnes")
+
+# Passing a List as an Argument
+# You can send any data types of argument to a function (string, number, list, dictionary etc.), and it will be treated as the same data type inside the function.
+#
+# E.g. if you send a List as an argument, it will still be a List when it reaches the function:
+
+fruits = ["apple", "banana", "cherry"]
+def my_function(food):
+  for x in food:
+    print(x)
+
+my_function(fruits)
+
+# Return Values
+# To let a function return a value, use the return statement:
+
