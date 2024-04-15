@@ -1,3 +1,3 @@
-from calculator import *
+from calculator_complete import *
 
 calculator()

@@ -1,0 +1,3 @@
+import caluclator_function
+
+caluclator_function.calculator()
