@@ -1,4 +1,4 @@
-## <ins> What is scripting?:
+## <ins> What is scripting?
 
 ![pcture](https://visionx.io/wp-content/uploads/2023/03/Scripting-Language-vs-Programming-Language-768x768.png)
 
@@ -9,7 +9,7 @@ It saves us time. It talks directly to the computer.
 
 
 A programme is more interactive and helps humans communicate with their computers better. usually for large scale programmes with a broad rang of activities. can be used with compiled or interpreted languages whereas scripts have a very specific task and are usually just interpreted languages. 
-## <ins> What are packages?:
+## <ins> What are packages?
 
 Packages are predfined groups of functions that we can call upon to save ourselves from writing extra code. They are made to make our life easier and reduce the amount of coding we need to do with some built in functions.
 
