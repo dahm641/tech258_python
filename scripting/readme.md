@@ -1,4 +1,4 @@
-## What is scripting
+## <ins> What is scripting?:
 
 ![pcture](https://visionx.io/wp-content/uploads/2023/03/Scripting-Language-vs-Programming-Language-768x768.png)
 
@@ -9,14 +9,11 @@ It saves us time. It talks directly to the computer.
 
 
 A programme is more interactive and helps humans communicate with their computers better. usually for large scale programmes with a broad rang of activities. can be used with compiled or interpreted languages whereas scripts have a very specific task and are usually just interpreted languages. 
-## What are packages
+## <ins> What are packages?:
 
 Packages are predfined groups of functions that we can call upon to save ourselves from writing extra code. They are made to make our life easier and reduce the amount of coding we need to do with some built in functions.
 
-We can import them from online and other places too if needed. 
-this can be done using the `pip` command in the terminal.
-
-An example is:
+### <ins> An example is:
 ```python
 import datetime
 print(datetime.datetime.today())
@@ -24,14 +21,42 @@ print(datetime.datetime.today())
 This uses the date time package which gives us some functions to use.
 Here I used the function `datetime.today` to get the current date and time.
 
-To get a complete list of builtin functions we can run the following:
+### To get a complete list of builtin functions we can run the following:
 ```python
 for name in dir(builtins):
     if name[0].islower():
        print(name)
 ```
+We can import them from online and other places too if needed. 
+this can be done using the `pip` command in the terminal.
 
-## Examples of devops python scripts:
+### <ins> For example: <br>
+
+If we open up the terminal (powershell or bash) and input the following command:
+
+`pip install requests`
+
+This will install the external package called requests from Python.
+
+We can then go back to Python and use this package.
+
+### <ins> For example:
+
+```python
+import requests
+requests_bbc = requests.get("https://www.bbc.co.uk/")
+print(requests_bbc.status_code)
+print(requests_bbc.content)
+```
+This will call upon the requests package and use some functions defined in it. In this example it is getting data from the url "https://www.bbc.co.uk"
+and then printing aspects of that data. Here we printed the status code and the HTML contents.
+
+
+
+
+
+
+## <ins> Examples of devops python scripts:
 
 1. Automated back up script
 2. Server health check script
@@ -42,9 +67,10 @@ for name in dir(builtins):
 7. Container orchestration script
 8. Packaging script
 9. Testing script
-10. CI/CD pipelin script
+10. CI/CD pipelin script 
 
-### Example of automated back up script:
+
+### <ins> Example of an automated back up script:
 
 ```python
 import shutil
