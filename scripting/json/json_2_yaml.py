@@ -22,6 +22,27 @@ def create_yaml(data: dict) -> json:
         yaml.dump(data, yaml_file, sort_keys=False) # to keep the same order yaml.dump has a sort_keys keyword argument that is set to True by default. Set it to False to not reorder:
     print("file converted successfully!")
 
+# def main() -> None:
+#
+#     # Check if given a file name as an argument.
+#     if len(sys.argv) > 1:
+#         if os.path.exists(sys.argv[1]):
+#             json_dict = load_json(sys.argv[1])
+#             create_yaml(json_dict, sys.argv[1])
+#
+#     # If not, convert all JSON files in json_files.
+#     else:
+#         files = os.listdir("./json_files")
+#         print(files)
+#         for file_name in files:
+#             json_dict = load_json(file_name, "./json_files")
+#             create_yaml(json_dict, file_name, "./yaml")
+#
+# if __name__ == "__main__":
+#     main()
+
+
+
 #storing returned value from json
 json_2_dict = load_json()
 
