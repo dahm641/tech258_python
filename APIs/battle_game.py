@@ -84,6 +84,15 @@ def main() -> None:
     else:
         fighter1 = pokemon_2
         fighter2 = pokemon_1
+    time.sleep(5)
+    print("Battle begins in 3 \n")
+    time.sleep(1)
+    print("2 \n")
+    time.sleep(1)
+    print("1")
+    time.sleep(1)
+    print("BATTLE!")
+    time.sleep(1)
 
     # Game is a series of rounds, taking turns to attack and defend
     round_count = 0
