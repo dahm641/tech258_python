@@ -197,3 +197,5 @@ Content-Type: application/json
 
 ## Caching
 Caching is the process of storing copies of frequently accessed or computed data in a temporary storage location, known as a cache, to improve performance and reduce the need to fetch the data from the original source repeatedly.
+
+One example is when you access a url it might send you to a certain server and that is stored as cache so next time you can load into that url quicker
