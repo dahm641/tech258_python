@@ -89,10 +89,10 @@ def main() -> None:
     time.sleep(1)
     print("2 \n")
     time.sleep(1)
-    print("1")
+    print("1 \n")
     time.sleep(1)
     print("BATTLE!")
-    time.sleep(1)
+    time.sleep(3)
 
     # Game is a series of rounds, taking turns to attack and defend
     round_count = 0
