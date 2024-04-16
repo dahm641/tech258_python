@@ -53,6 +53,32 @@ This interoperability allows businesses to integrate disparate systems and servi
 
 ## Diagram
 
+![img_6.png](img_6.png)
+
+## <ins> Restful APIs
+Representational State Transfer Application Programming Interface
+
+REST is a set of architectural constraints, not a protocol or a standard. API developers can implement REST in a variety of ways.
+
+<ins>In order for an API to be considered RESTful, it has to conform to these criteria:
+
+* A client-server architecture made up of clients, servers, and resources, with requests managed through HTTP.
+
+
+* Stateless client-server communication, meaning no client information is stored between get requests and each request is separate and unconnected.
+
+
+* Cacheable data that streamlines client-server interactions.
+A uniform interface between components so that information is transferred in a standard form. This requires that:
+  * resources requested are identifiable and separate from the representations sent to the client.
+
+  * resources can be manipulated by the client via the representation they receive because the representation contains enough information to do so.
+  * self-descriptive messages returned to the client have enough information to describe how the client should process it.
+  * hypertext/hypermedia is available, meaning that after accessing a resource the client should be able to use hyperlinks to find all other currently available actions they can take.
+
+
+* A layered system that organizes each type of server (those responsible for security, load-balancing, etc.) involved the retrieval of requested information into hierarchies, invisible to the client.
+
 ## What is HTTP
 HTTP stands for Hyper Text Transfer Protocol
 
@@ -61,6 +87,7 @@ WWW is about communication between web clients and servers
 Communication between client computers and web servers is done by sending HTTP Requests and receiving HTTP Responses
 
  HTTP messages are text-based, consisting of headers and, optionally, a message body. Headers provide data about the request or response, while the message body contains the actual data being transmitted.
+![img_2.png](img_2.png)
 
 ### Request/Response
 
@@ -70,6 +97,13 @@ Communication between client computers and web servers is done by sending HTTP R
 3. The server runs an application to process the request
 4. The server returns an HTTP response (output) to the browser
 5. The client (the browser) receives the response
+
+### HTTPS?
+
+HTTPS stands for Hypertext Transfer Protocol Secure.
+HTTPS is widely used for securing sensitive transactions on the web, such as online banking, e-commerce transactions, and accessing private information on websites. It provides a secure and private communication channel between clients and servers, protecting user data from eavesdropping, tampering, and unauthorized access. 
+![img_5.png](img_5.png)
+![img_4.png](img_4.png)
 
 ## HTTP Request structure
 ![img_1.png](img_1.png)
@@ -83,7 +117,8 @@ Communication between client computers and web servers is done by sending HTTP R
   * Accept: Indicates the media types that the client can understand.
   * Authorization: Provides credentials for authenticating the client with the server.
 * The body is the data sent by the client to the server for example a form being filled out. This is in a number of formats like JSON XML HTML or TXT
-     
+
+![img_3.png](img_3.png)
 
 ## HTTP Response structure
 ![img.png](img.png)
@@ -113,8 +148,17 @@ similar to the GET method but requests only the headers of the specified resourc
 ### OPTIONS
 used to retrieve information about the communication options available for the specified resource. It allows the client to determine which HTTP methods and headers are supported by the server for a given resource.
 
+![img_8.png](img_8.png)
+
 ## Statelessness
 HTTP is stateless, meaning each request from the client to the server is independent and doesn't rely on previous requests.  In other words, the server does not store any information about the client's previous interactions or state between requests
+
+### Stateful Requests:
+
+"stateful" HTTP requests involve maintaining some form of state or context between requests. This can be achieved through mechanisms like cookies, session tokens, or authentication tokens.
+
+![img_7.png](img_7.png)
+
 
 ### Examples of stateless HTTP requests:
 
@@ -128,6 +172,28 @@ Host: www.example.com
 DELETE /resource/123 HTTP/1.1
 Host: www.example.com
 ```
-"stateful" HTTP requests involve maintaining some form of state or context between requests. This can be achieved through mechanisms like cookies, session tokens, or authentication tokens.
+
+### Examples of stateful requests:
+
+**GET Request for a Restricted Resource with Authentication:**
+
+```html
+GET /secure/resource HTTP/1.1
+Host: www.example.com
+Authorization: _adQssw5c
+```
+**POST Request to Add Item to Shopping Cart:**
+```html
+POST /cart/add-item HTTP/1.1
+Host: www.example.com
+Cookie: session=abc123
+Content-Type: application/json
+
+{
+  "item_id": "123",
+  "quantity": 2
+}
+```
+
 ## Caching
 Caching is the process of storing copies of frequently accessed or computed data in a temporary storage location, known as a cache, to improve performance and reduce the need to fetch the data from the original source repeatedly.
