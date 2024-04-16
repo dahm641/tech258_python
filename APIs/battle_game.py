@@ -1,5 +1,7 @@
 from random import randint
-from poke_req import get_pokemon, get_pokemon_stats
+from poke_req import get_pokemon, get_pokemon_stats, get_random_pokemon, get_pokemon_stats_random
+import time
+import random
 
 def battle_round(fighter_1: dict, fighter_2: dict, round_count: int) -> None:
     print(f"{'='*40}")
@@ -40,6 +42,12 @@ def choose_fighter(player: str) -> dict:
     pokemon_stats = get_pokemon_stats(pokemon)
     return pokemon_stats
 
+def choose_fighter_random(player: str) -> dict:
+    """Asks the user to choose a pokemon."""
+
+    pokemon = get_random_pokemon()
+    pokemon_stats = get_pokemon_stats_random(pokemon)
+    return pokemon_stats
 
 def main() -> None:
     print(f"\n{'=' * 60}")
@@ -48,7 +56,20 @@ def main() -> None:
 
     # Choose a character, then validate the input
     pokemon_1 = choose_fighter("Player 1")
-    pokemon_2 = choose_fighter("Player 2")
+
+    second_player_status = False
+
+
+    while second_player_status is False:
+        second_player = input("Random 2nd player y/n").lower()
+        if second_player == "y":
+            second_player_status = True
+            pokemon_2 = choose_fighter_random("Player 2")
+        elif second_player == "n":
+            second_player_status = True
+            pokemon_2 = choose_fighter("Player 2")
+        else: second_player_status = False
+
 
     print(f"Player 1's pokemon is {pokemon_1}")
     print(f"Player 2's pokemon is {pokemon_2}")
@@ -69,6 +90,7 @@ def main() -> None:
     while fighter1["hp"] > 0 and fighter2["hp"] > 0:
         battle_round(fighter1, fighter2, round_count)
         round_count += 1
+        time.sleep(0.5)
 
     print(f"\n{'='*10}BATTLE END{'='*10}")
 
