@@ -3,35 +3,56 @@ from poke_req import get_pokemon, get_pokemon_stats, get_random_pokemon, get_pok
 import time
 import random
 
-def battle_round(fighter_1: dict, fighter_2: dict, round_count: int) -> None:
-    print(f"{'='*40}")
-    print(f"{'*'*17}round {round_count}{'*'*16}")
-    print(f"{'=' * 40}")
-    # Fighter 1 attack
-    fighter_1_att = randint(0, fighter_1["attack"])
-    fighter_2_def = randint(0, fighter_2["defense"])
+def battle_round(fighter_1: dict, fighter_2: dict) -> None:
+    # stats for pokemon
+    # adds defence to hp
+    # states attack points
 
-    if fighter_1_att > fighter_2_def:
-        fighter_2["hp"] -= 1
-        print(f"{'-'*10}HIT{'-'*10}")
-        print(f"{fighter_1['name']} damages {fighter_2['name']} for 1 hp.")
-    else:
-        print(f"{'-' * 10}BLOCK{'-' * 10}")
-        print(f"{fighter_2['name']} blocks {fighter_1['name']}'s attack.")
-    print(f"{fighter_2['name']} has {fighter_2['hp']} hp left.")
+    fighter_1["hp"] += round(fighter_1["defense"] / 5, 0)
+    fighter_2["hp"] += round(fighter_2["defense"] / 5, 0)
 
-    # Fighter 2 attack
-    fighter_2_att = randint(0, fighter_2["attack"])
-    fighter_1_def = randint(0, fighter_1["defense"])
 
-    if fighter_2_att > fighter_1_def:
-        fighter_1["hp"] -= 1
-        print(f"{'-' * 10}HIT{'-' * 10}")
-        print(f"{fighter_2['name']} damages {fighter_1['name']} for 1 hp.")
-    else:
-        print(f"{'-' * 10}BLOCK{'-' * 10}")
-        print(f"{fighter_1['name']} blocks {fighter_2['name']}'s attack.")
-    print(f"{fighter_1['name']} has {fighter_1['hp']} hp left.")
+
+    round_count = 0
+    while fighter_1["hp"] > 0 and fighter_2["hp"] > 0:
+        round_count += 1
+        time.sleep(3)
+
+
+        print(f"{'='*40}")
+        print(f"{'*'*17}round {round_count}{'*'*16}")
+        print(f"{'=' * 40}")
+        # Fighter 1 attack probability
+        fighter_1_att = randint(0, fighter_1["attack"])
+        fighter_2_def = randint(0, fighter_2["defense"])
+
+        # Fighter 2 attack probability
+        fighter_2_att = randint(0, fighter_2["attack"])
+        fighter_1_def = randint(0, fighter_1["defense"])
+
+        # fighter attack stats
+        fighter_1_att2 = randint(1, round(fighter_1["attack"] / 4, 0))
+        fighter_2_att2 = randint(1, round(fighter_2["attack"] / 4, 0))
+
+
+
+        if fighter_1_att > fighter_2_def:
+            fighter_2["hp"] -= fighter_1_att2
+            print(f"{'-'*10}HIT{'-'*10}")
+            print(f"{fighter_1['name']} damages {fighter_2['name']} for {fighter_1_att2} hp.")
+        else:
+            print(f"{'-' * 10}BLOCK{'-' * 10}")
+            print(f"{fighter_2['name']} blocks {fighter_1['name']}'s attack.")
+        print(f"{fighter_2['name']} has {fighter_2['hp']} hp left.")
+
+        if fighter_2_att > fighter_1_def:
+            fighter_1["hp"] -= fighter_2_att2
+            print(f"{'-' * 10}HIT{'-' * 10}")
+            print(f"{fighter_2['name']} damages {fighter_1['name']} for {fighter_2_att2} hp.")
+        else:
+            print(f"{'-' * 10}BLOCK{'-' * 10}")
+            print(f"{fighter_1['name']} blocks {fighter_2['name']}'s attack.")
+        print(f"{fighter_1['name']} has {fighter_1['hp']} hp left.")
 
 
 def choose_fighter(player: str) -> dict:
@@ -95,12 +116,8 @@ def main() -> None:
     time.sleep(3)
 
     # Game is a series of rounds, taking turns to attack and defend
-    round_count = 0
-    while fighter1["hp"] > 0 and fighter2["hp"] > 0:
-        battle_round(fighter1, fighter2, round_count)
-        round_count += 1
-        time.sleep(0.5)
 
+    battle_round(fighter1, fighter2)
     print(f"\n{'='*10}BATTLE END{'='*10}")
 
     if fighter1["hp"] > 0:
