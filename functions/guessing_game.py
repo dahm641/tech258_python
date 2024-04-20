@@ -36,6 +36,7 @@ def guessing_game():
                     elif str(user_answer) == "n":
                         game_active = False
                         user_input = True
+                        print("Thanks for playing!")
                     else: print(f"{user_answer} is not a valid input")
 
 guessing_game()
